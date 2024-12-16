@@ -1,6 +1,12 @@
-import { Grid, Typography, Box, Stack } from "@mui/material";
+import { Grid, Typography, Box, Stack, useTheme, useMediaQuery } from "@mui/material";
 
 export default function SectionOne() {
+  const theme = useTheme();
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up('xl'));
+  const isMediumScreen = useMediaQuery(theme.breakpoints.between('md', 'xl'));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobileScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <Box
       sx={{
@@ -8,22 +14,18 @@ export default function SectionOne() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        margin: "0 40px"
+        maxWidth: '1200px',
+        margin: '0 auto'
       }}
     >
       {/* Photo Grid */}
-      <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 3, md: 8 }} display={'flex'} justifyContent={'center'} alignItems={'center'} sx={{
-        // maxWidth: "1200px",
-        // padding: "0 40px",
-      }}
-      >
+      <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 3, md: 8 }} display={'flex'} justifyContent={'center'} alignItems={'center'}>
         <img
           src="../../img/image1.jpg"
           alt="Wedding couple side photo"
           style={{
-            maxWidth: "270px",
             width: "100%",
-            height: '400px',
+            height: isLargeScreen ? '500px' : isMediumScreen ? '400px' : '300px',
             objectFit: "cover",
             borderRadius: "4px",
           }}
@@ -33,7 +35,7 @@ export default function SectionOne() {
           alt="Wedding couple main photo"
           style={{
             width: "100%",
-            height: '500px',
+            height: isLargeScreen ? '600px' : isMediumScreen ? '500px' : '400px',
             objectFit: "cover",
             borderRadius: "4px"
           }}
@@ -42,8 +44,8 @@ export default function SectionOne() {
           src="https://cuoidichochi.my.canva.site/media/99cb877294d37824423cb7ef7ab80f86.jpg"
           alt="Bride photo"
           style={{
-            maxWidth: "270px",
             width: "100%",
+            height: isLargeScreen ? '500px' : isMediumScreen ? '400px' : '300px',
             objectFit: "cover",
             borderRadius: "4px",
           }}
