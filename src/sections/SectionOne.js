@@ -25,7 +25,7 @@ export default function SectionOne() {
           alt="Wedding couple side photo"
           style={{
             width: "100%",
-            height: isLargeScreen ? '500px' : isMediumScreen ? '400px' : '300px',
+            height: isLargeScreen ? '550px' : isMediumScreen ? '450px' : '350px',
             objectFit: "cover",
             borderRadius: "4px",
           }}
@@ -35,7 +35,7 @@ export default function SectionOne() {
           alt="Wedding couple main photo"
           style={{
             width: "100%",
-            height: isLargeScreen ? '600px' : isMediumScreen ? '500px' : '400px',
+            height: isLargeScreen ? '650px' : isMediumScreen ? '550px' : '450px',
             objectFit: "cover",
             borderRadius: "4px"
           }}
@@ -45,7 +45,7 @@ export default function SectionOne() {
           alt="Bride photo"
           style={{
             width: "100%",
-            height: isLargeScreen ? '500px' : isMediumScreen ? '400px' : '300px',
+            height: isLargeScreen ? '550px' : isMediumScreen ? '450px' : '350px',
             objectFit: "cover",
             borderRadius: "4px",
           }}

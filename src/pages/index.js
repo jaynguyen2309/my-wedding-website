@@ -3,6 +3,7 @@ import { styled } from "@mui/system";
 import SectionOne from "@/sections/SectionOne";
 import SectionTwo from "@/sections/SectionTwo";
 import SectionThree from "@/sections/SectionThree";
+import SectionFour from "@/sections/SectionFour";
 import SectionFive from "@/sections/SectionFive";
 import SectionSix from "@/sections/SectionSix";
 
@@ -35,7 +36,8 @@ const BackgroundSectionThreeStyle = styled("div")(() => ({
   padding: "0 40px",
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  minHeight: "100vh"
 }));
 
 const BackgroundSectionFiveStyle = styled("div")(() => ({
@@ -43,7 +45,8 @@ const BackgroundSectionFiveStyle = styled("div")(() => ({
   padding: "0 40px",
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  minHeight: "100vh"
 }));
 
 const BackgroundSectionSixStyle = styled("div")(() => ({
@@ -67,6 +70,9 @@ export default function Home() {
       <BackgroundSectionThreeStyle>
         <SectionThree />
       </BackgroundSectionThreeStyle>
+      <BackgroundSectionTwoStyle>
+        <SectionFour />
+      </BackgroundSectionTwoStyle>
       <BackgroundSectionFiveStyle>
         <SectionFive />
       </BackgroundSectionFiveStyle>
