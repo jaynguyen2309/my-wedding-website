@@ -57,15 +57,15 @@ export default function SectionFour() {
     <Card
       sx={{
         minWidth: "300px", // Fixed card width
-        maxWidth: "300px",
-        height: "500px",
-        borderRadius: "24px",
+        maxWidth: "400px",
+        height: "550px",
+        borderRadius: "30px",
         bgcolor: "#591C1C",
         color: "white",
         overflow: "hidden",
         boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
         marginRight: "16px", // Gap between cards
-        padding: '20px'
+        padding: '35px'
       }}
     >
       <CardMedia
@@ -75,6 +75,8 @@ export default function SectionFour() {
         sx={{
           aspectRatio: "1",
           objectFit: "cover",
+          minHeight: '300px',
+          maxHeight: '300px',
           borderRadius: "24px",
         }}
       />
@@ -85,8 +87,8 @@ export default function SectionFour() {
             color: "white",
             fontWeight: 700,
             mb: 1,
-            fontFamily: '"Raleway", sans-serif',
-            fontSize: "16px",
+            fontFamily: '"Bodoni Moda", sans-serif',
+            fontSize: "20px",
           }}
         >
           {card.id}
@@ -98,7 +100,7 @@ export default function SectionFour() {
             fontWeight: "bold",
             mb: 2,
             fontFamily: '"Raleway", sans-serif',
-            fontSize: "14px",
+            fontSize: "18px",
           }}
         >
           {card.title}
@@ -107,9 +109,10 @@ export default function SectionFour() {
           variant="body1"
           sx={{
             color: "rgba(255,255,255,0.8)",
-            fontSize: "12px",
+            fontSize: "16px",
             lineHeight: 1.5,
             fontFamily: '"Raleway", sans-serif',
+            fontWeight: 500,
           }}
         >
           {card.description}
@@ -127,9 +130,9 @@ export default function SectionFour() {
     >
       <Typography
         variant="h4"
-        sx={{ color: "#591C1C", fontWeight: "bold", mb: 2 }}
+        sx={{ color: "#591C1C", fontWeight: 500, mb: 2, fontFamily: '"Bodoni Moda", sans-serif', fontSize: '50px' }}
       >
-        Every couple has a story
+        Every couple has <span style={{ fontFamily: '"Dancing Script", cursive', paddingLeft: '10px' }}>a story</span> <span><img src="/img/heart1.png" alt="heart" style={{ width: '100px', rotate: '30deg', paddingLeft: '10px', paddingBottom: '10px' }} /></span>
       </Typography>
 
       {isMobile ? (

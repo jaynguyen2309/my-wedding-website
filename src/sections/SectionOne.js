@@ -10,7 +10,7 @@ export default function SectionOne() {
   return (
     <Box
       sx={{
-        padding: "40px 0",
+        padding: isLargeScreen ? "40px 0" : "10px 0",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -19,13 +19,13 @@ export default function SectionOne() {
       }}
     >
       {/* Photo Grid */}
-      <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 3, md: 8 }} display={'flex'} justifyContent={'center'} alignItems={'center'}>
+      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 3, sm: 8 }} display={'flex'} justifyContent={'center'} alignItems={'center'}>
         <img
           src="../../img/image1.jpg"
           alt="Wedding couple side photo"
           style={{
-            width: "100%",
-            height: isLargeScreen ? '550px' : isMediumScreen ? '450px' : '350px',
+            width: isLargeScreen ? "100%" : isMediumScreen ? "50%" : "auto",
+            height: isLargeScreen ? '550px' : isMediumScreen ? '450px' : '250px',
             objectFit: "cover",
             borderRadius: "4px",
           }}
@@ -34,8 +34,8 @@ export default function SectionOne() {
           src="https://cuoidichochi.my.canva.site/media/44421081d029c10ac3bbffcd6b94f368.jpg"
           alt="Wedding couple main photo"
           style={{
-            width: "100%",
-            height: isLargeScreen ? '650px' : isMediumScreen ? '550px' : '450px',
+            width: isLargeScreen ? "100%" : isMediumScreen ? "50%" : "auto",
+            height: isLargeScreen ? '650px' : isMediumScreen ? '550px' : '300px',
             objectFit: "cover",
             borderRadius: "4px"
           }}
@@ -44,38 +44,70 @@ export default function SectionOne() {
           src="https://cuoidichochi.my.canva.site/media/99cb877294d37824423cb7ef7ab80f86.jpg"
           alt="Bride photo"
           style={{
-            width: "100%",
-            height: isLargeScreen ? '550px' : isMediumScreen ? '450px' : '350px',
+            width: isLargeScreen ? "100%" : isMediumScreen ? "50%" : "auto",
+            height: isLargeScreen ? '550px' : isMediumScreen ? '450px' : '250px',
             objectFit: "cover",
             borderRadius: "4px",
           }}
         />
       </Stack>
 
-      {/* Couple Names */}
-      <Typography
-        sx={{
-          color: "#4A1010",
-          fontSize: "3rem",
-          fontFamily: "'Dancing Script', cursive",
-          margin: "-10rem 0 6rem 0",
-          zIndex: 1000
-        }}
-      >
-        Quang Duy & Thanh Huyen
-      </Typography>
+      {!isMobileScreen ? (
+        <>
+          {/* Couple Names */}
+          <Typography
+            sx={{
+              color: "#4A1010",
+              fontSize: "3rem",
+              fontFamily: "'Dancing Script', cursive",
+              margin: "-10rem 0 6rem 0",
+              zIndex: 1000
+            }}
+          >
+            Quang Duy & Thanh Huyen
+          </Typography>
 
-      {/* Quote */}
-      <Typography
-        sx={{
-          color: "#4A1010",
-          fontSize: "1rem",
-          textTransform: "uppercase",
-          letterSpacing: "2px"
-        }}
-      >
-        "Two hearts in love need no words."
-      </Typography>
+          {/* Quote */}
+          <Typography
+            sx={{
+              color: "#4A1010",
+              fontSize: "1rem",
+              textTransform: "uppercase",
+              letterSpacing: "2px"
+            }}
+          >
+            "Two hearts in love need no words."
+          </Typography>
+        </>
+      ) :
+        <div style={{ position: 'absolute', top: '40%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+          <Typography
+            sx={{
+              color: "#4A1010",
+              fontSize: "40px",
+              fontFamily: "'Dancing Script', cursive",
+              margin: "4rem 0 12rem 0",
+              zIndex: 1000,
+              textAlign: 'center'
+            }}
+          >
+            Quang Duy & Thanh Huyen
+          </Typography>
+
+          {/* Quote */}
+          <Typography
+            sx={{
+              color: "#4A1010",
+              fontSize: "0.8rem",
+              textTransform: "uppercase",
+              letterSpacing: "2px",
+              textAlign: 'center'
+            }}
+          >
+            "Two hearts in love need no words."
+          </Typography>
+        </div>
+      }
     </Box>
   );
 }

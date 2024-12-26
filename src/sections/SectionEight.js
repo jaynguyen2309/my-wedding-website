@@ -10,19 +10,20 @@ const SectionEight = () => {
     const now = new Date();
     const timeDifference = targetDate - now;
 
-    if (timeDifference <= 0) return { years: 0, months: 0, weeks: 0, days: 0 };
+    if (timeDifference <= 0) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    }
 
-    const secondsInYear = 365 * 24 * 60 * 60 * 1000;
-    const secondsInMonth = 30 * 24 * 60 * 60 * 1000;
-    const secondsInWeek = 7 * 24 * 60 * 60 * 1000;
     const secondsInDay = 24 * 60 * 60 * 1000;
+    const secondsInHour = 60 * 60 * 1000;
+    const secondsInMinute = 60 * 1000;
 
-    const years = Math.floor(timeDifference / secondsInYear);
-    const months = Math.floor((timeDifference % secondsInYear) / secondsInMonth);
-    const weeks = Math.floor((timeDifference % secondsInMonth) / secondsInWeek);
-    const days = Math.floor((timeDifference % secondsInWeek) / secondsInDay);
+    const days = Math.floor(timeDifference / secondsInDay);
+    const hours = Math.floor((timeDifference % secondsInDay) / secondsInHour);
+    const minutes = Math.floor((timeDifference % secondsInHour) / secondsInMinute);
+    const seconds = Math.floor((timeDifference % secondsInMinute) / 1000);
 
-    return { years, months, weeks, days };
+    return { days, hours, minutes, seconds };
   }
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const SectionEight = () => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-    return () => clearInterval(timer); // Cleanup
+    return () => clearInterval(timer);
   }, []);
 
   useEffect(() => {
@@ -46,23 +47,26 @@ const SectionEight = () => {
     const section = document.getElementById("section-eight");
     if (section) observer.observe(section);
 
-    return () => section && observer.unobserve(section);
+    return () => {
+      if (section) observer.unobserve(section);
+      observer.disconnect();
+    };
   }, []);
 
   function formatNumber(number) {
-    return String(number).padStart(2, "0"); // Adds leading zero for single-digit numbers
+    return String(number).padStart(2, "0");
   }
 
   return (
     <Stack
       direction="column"
-      justifyContent="center"
       alignItems="center"
       maxWidth="1200px"
       margin="0 auto"
       id="section-eight"
       role="region"
       aria-labelledby="countdown-title"
+      marginTop={10}
     >
       <Typography
         id="countdown-title"
@@ -81,26 +85,31 @@ const SectionEight = () => {
           alignContent="center"
           justifyContent="center"
         >
-          {["Years", "Months", "Weeks", "Days"].map((label, index) => {
-            const value = [timeLeft.years, timeLeft.months, timeLeft.weeks, timeLeft.days][index];
+          {["Days", "Hours", "Minutes", "Seconds"].map((label, index) => {
+            const value = [
+              timeLeft.days,
+              timeLeft.hours,
+              timeLeft.minutes,
+              timeLeft.seconds,
+            ][index];
             return (
               <Stack
                 key={label}
-                width="160px"
+                width="200px"
                 direction="column"
                 alignItems="center"
                 justifyContent="center"
-                border="2px solid #590112"
+                border="3px solid #590112"
                 borderRadius={5}
                 padding={3}
-                spacing={5}
+                spacing={9}
               >
                 <Typography
                   variant="h2"
                   fontWeight={700}
                   fontFamily='"Bodoni Moda", sans-serif'
                   color="#590112"
-                  fontSize={'70px'}
+                  fontSize={"95px"}
                 >
                   {formatNumber(value)}
                 </Typography>
@@ -109,7 +118,7 @@ const SectionEight = () => {
                   fontWeight={700}
                   fontFamily={'"Bodoni Moda", sans-serif'}
                   color="#590112"
-                  fontSize={'30px'}
+                  fontSize={"40px"}
                 >
                   {label}
                 </Typography>

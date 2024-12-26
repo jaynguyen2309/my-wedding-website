@@ -29,7 +29,8 @@ const BackgroundSectionTwoStyle = styled("div")(() => ({
   padding: "0 40px",
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  backgroundColor: '#ffffff',
 }));
 
 const BackgroundSectionThreeStyle = styled("div")(() => ({
@@ -51,7 +52,7 @@ const BackgroundSectionFiveStyle = styled("div")(() => ({
   padding: "0 40px",
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  // justifyContent: 'center',  
   minHeight: "100vh"
 }));
 
@@ -59,8 +60,7 @@ const BackgroundSectionSixStyle = styled("div")(() => ({
   minHeight: "100vh",
   padding: "0 40px",
   display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center'
+  backgroundColor: '#ffffff',
 }));
 
 const BackgroundSectionEightStyle = styled("div")(() => ({
@@ -72,8 +72,6 @@ const BackgroundSectionEightStyle = styled("div")(() => ({
   objectFit: "cover",
   padding: "0 40px",
   display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
   minHeight: "100vh",
   opacity: 0.9
 }));
@@ -90,7 +88,6 @@ const BackgroundSectionTenStyle = styled("div")(() => ({
   alignItems: 'center',
   justifyContent: 'center',
   minHeight: "100vh",
-  opacity: 0.9
 }));
 
 export default function Home() {
@@ -121,9 +118,9 @@ export default function Home() {
       <BackgroundSectionEightStyle>
         <SectionEight />
       </BackgroundSectionEightStyle>
-      {/* <BackgroundSectionFiveStyle>
+      <BackgroundSectionFiveStyle>
         <SectionNine />
-      </BackgroundSectionFiveStyle> */}
+      </BackgroundSectionFiveStyle>
       <BackgroundSectionTenStyle>
         <SectionTen />
       </BackgroundSectionTenStyle>

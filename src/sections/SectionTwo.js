@@ -10,7 +10,7 @@ export default function SectionTwo() {
 
   return (
     <Stack
-      direction={'row'}
+      direction={{ xs: 'column', sm: 'row' }}
       spacing={5}
       alignItems='center'
       justifyContent='center'
@@ -24,8 +24,8 @@ export default function SectionTwo() {
         src="https://cuoidichochi.my.canva.site/media/300d7fd3eabc42a56f85b459a47fb46d.jpg"
         alt="Wedding couple side photo"
         style={{
-          height: '100vh',
-          maxWidth: '100%',
+          height: imageHeight,
+          maxWidth: isLargeScreen ? '65%' : '100%',
           objectFit: 'cover'
         }}
       />
@@ -34,7 +34,7 @@ export default function SectionTwo() {
         alt="Save the date"
         style={{
           height: imageHeight,
-          maxWidth: '100%',
+          maxWidth: isLargeScreen ? '65%' : '100%',
           objectFit: 'contain'
         }}
       />

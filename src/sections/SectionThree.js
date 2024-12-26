@@ -3,9 +3,9 @@ import { Stack, Grid, Typography } from '@mui/material';
 
 const SectionThree = () => {
   return (
-    <Grid container spacing={5} display="flex" direction="row" sx={{maxWidth: '1200px', margin: '0 auto 20px',}}>
+    <Grid container spacing={5} display="flex" direction="row" sx={{ maxWidth: '1200px', margin: '0 auto 20px' }}>
       <Grid item xs={12} md={6}>
-        <Stack direction="row" spacing={3} alignItems={'center'}>
+        <Stack direction={{ xs: 'column', md: 'row' }} spacing={3} alignItems={'center'}>
           <img
             src="https://cuoidichochi.my.canva.site/media/d770a7800848903abda585a8302b4ec8.jpg"
             alt="Wedding couple side photo"
@@ -22,8 +22,8 @@ const SectionThree = () => {
           </div>
         </Stack>
       </Grid>
-      <Grid item xs={12} md={6} mt={25}>
-        <Stack direction="row" spacing={3} alignItems={'center'}>
+      <Grid item xs={12} md={6} mt={{ xs: 'unset', lg: 25 }}>
+        <Stack direction={{ xs: 'column', md: 'row' }} spacing={3} alignItems={'center'}>
           <img
             src="https://cuoidichochi.my.canva.site/media/b735eb9a521da269d078382c95e3752e.jpg"
             alt="Wedding couple side photo"
