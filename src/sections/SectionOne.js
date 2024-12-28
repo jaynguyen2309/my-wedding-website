@@ -1,4 +1,8 @@
 import { Grid, Typography, Box, Stack, useTheme, useMediaQuery } from "@mui/material";
+import localFont from 'next/font/local';
+// import font from '../../fonts/Playlist_Script.otf'
+
+export const myFont = localFont({ src: '../../public/fonts/BrittanySignature.ttf' })
 
 export default function SectionOne() {
   const theme = useTheme();
@@ -56,10 +60,11 @@ export default function SectionOne() {
         <>
           {/* Couple Names */}
           <Typography
+            className={myFont.className}
             sx={{
               color: "#4A1010",
               fontSize: "3rem",
-              fontFamily: "'Dancing Script', cursive",
+              // fontFamily: "'Dancing Script', cursive",
               margin: "-10rem 0 6rem 0",
               zIndex: 1000
             }}

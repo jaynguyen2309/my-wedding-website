@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Stack, Typography } from "@mui/material";
+import { myFont } from "./SectionOne";
 
 const SectionEight = () => {
   const targetDate = new Date("2025-02-08T00:00:00");
@@ -71,8 +72,8 @@ const SectionEight = () => {
       <Typography
         id="countdown-title"
         variant="h2"
-        fontWeight={600}
-        fontFamily='"Dancing Script", cursive'
+        fontWeight={500}
+        className={myFont.className}
         mb={10}
         color="#590112"
       >

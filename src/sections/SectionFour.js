@@ -12,6 +12,7 @@ import {
 import { useState } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { myFont } from "./SectionOne";
 
 export default function SectionFour() {
   const theme = useTheme();
@@ -58,7 +59,7 @@ export default function SectionFour() {
       sx={{
         minWidth: "300px", // Fixed card width
         maxWidth: "400px",
-        height: "550px",
+        height: "500px",
         borderRadius: "30px",
         bgcolor: "#591C1C",
         color: "white",
@@ -109,7 +110,7 @@ export default function SectionFour() {
           variant="body1"
           sx={{
             color: "rgba(255,255,255,0.8)",
-            fontSize: "16px",
+            fontSize: "14px",
             lineHeight: 1.5,
             fontFamily: '"Raleway", sans-serif',
             fontWeight: 500,
@@ -130,9 +131,9 @@ export default function SectionFour() {
     >
       <Typography
         variant="h4"
-        sx={{ color: "#591C1C", fontWeight: 500, mb: 2, fontFamily: '"Bodoni Moda", sans-serif', fontSize: '50px' }}
+        sx={{ color: "#591C1C", fontWeight: 500, mb: 2, fontFamily: '"Bodoni Moda", sans-serif', fontSize: '50px', display: 'flex', flexDirection: 'row', gap: '10px' }}
       >
-        Every couple has <span style={{ fontFamily: '"Dancing Script", cursive', paddingLeft: '10px' }}>a story</span> <span><img src="/img/heart1.png" alt="heart" style={{ width: '100px', rotate: '30deg', paddingLeft: '10px', paddingBottom: '10px' }} /></span>
+        Every couple has <span className={myFont.className} style={{ paddingLeft: '10px' }}>a story</span> <span><img src="/img/heart1.png" alt="heart" style={{ width: '100px', rotate: '30deg', paddingLeft: '10px', paddingBottom: '5px' }} /></span>
       </Typography>
 
       {isMobile ? (

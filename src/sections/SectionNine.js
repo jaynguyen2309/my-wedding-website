@@ -1,10 +1,11 @@
 import { Send } from "@mui/icons-material";
 import { Stack, Typography, TextField, Box, Grid, Button } from "@mui/material";
+import { myFont } from "./SectionOne";
 
 export default function SectionNine() {
   return (
-    <Stack direction="column" alignItems={'center'} justifyContent={'center'} maxWidth={'1200px'} margin={'0 auto'}>
-      <Typography variant="h1" fontWeight={700} fontFamily={'"Dancing Script", cursive'} color="white" mb={10}>
+    <Stack direction="column" alignItems={'center'} justifyContent={'center'} maxWidth={'1200px'} margin={'0 auto'} paddingTop={5} paddingBottom={5}>
+      <Typography variant="h1" fontWeight={700} className={myFont.className} color="white" fontSize={'40px'} pb={5}>
         RSVP
       </Typography>
       <Stack spacing={1} backgroudColor={'white'} direction={'column'} sx={{ backgroundColor: 'white' }} maxWidth={'800px'} p={'20px'} textAlign={'center'} borderRadius={'10px'}>
