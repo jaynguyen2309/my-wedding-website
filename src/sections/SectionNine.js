@@ -26,62 +26,31 @@ export default function SectionNine() {
 
   const textFieldWidth = isMobile ? 'auto' : '335px';
 
-  const handleSubmit = async () => {
-    // Form validation
-    if (!name.trim()) {
-      alert('Please enter your name');
-      return;
-    }
-
-    if (!going && !miss) {
-      alert('Please select whether you are attending or not');
-      return;
-    }
-
-    if (going && !guests.trim()) {
-      alert('Please enter number of guests');
-      return;
-    }
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new URLSearchParams();
+    formData.append('name', name);
+    formData.append('number of guests', guests);
+    formData.append('dietary', dietaryRequirements);
+    formData.append('going', going ? 'Yes' : miss ? 'No' : 'Not sure');
+  
+    const Sheet_Url = "https://script.google.com/macros/s/AKfycbyt3UxAHjAdzXgD54QqugMAqN2UeAKBq-VdO-dZSoOFngRy1y6A9scz79PRnxYsqB54/exec";
     try {
-      // Prepare the data
-      const formData = {
-        name,
-        going,
-        guests: going ? guests : null,
-        dietaryRequirements: going ? dietaryRequirements : null
-      };
-
-      // Replace DEPLOY_ID with your Google Apps Script deployment ID
-      const response = await fetch(
-        'https://script.google.com/macros/s/AKfycbw5IFAZ1s_JbtVHSMKC0zqrykcIbrF_RvTrZCM2vXNE41N_6pUBjAm6x-SLUFXzeY3P/exec',
-        {
-          method: 'POST',
-          body: JSON.stringify(formData),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-
+      const response = await fetch(Sheet_Url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formData.toString(),
+      });
+  
       const result = await response.json();
-
-      if (result.status === 'success') {
-        alert('Thank you for your RSVP!');
-        // Reset form
-        setName('');
-        setGuests('');
-        setDietaryRequirements('');
-        setGoing(false);
-        setMiss(false);
-      } else {
-        throw new Error(result.message || 'Failed to submit RSVP');
-      }
+      console.log(result);
     } catch (error) {
-      alert('Sorry, there was an error submitting your RSVP. Please try again.');
-      console.error('RSVP submission error:', error);
+      console.error('Error:', error);
     }
   };
+  
 
   return (
     <Stack alignItems={'center'} maxWidth={'1200px'} margin={'0 auto'}>
