@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, useTheme, useMediaQuery, Grid } from "@mui/material";
 import { myFont } from "./SectionOne";
 
 const SectionEight = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
   const targetDate = new Date("2025-02-08T00:00:00");
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
   const [isVisible, setIsVisible] = useState(false);
@@ -62,26 +65,73 @@ const SectionEight = () => {
     <Stack
       direction="column"
       alignItems="center"
-      maxWidth="1200px"
+      maxWidth={isMobile ? '400px' : "1200px"}
       margin="0 auto"
       id="section-eight"
       role="region"
       aria-labelledby="countdown-title"
-      marginTop={10}
+      marginTop={isMobile ? 5 : 10}
+      justifyContent={'center'}
     >
       <Typography
         id="countdown-title"
-        variant="h2"
-        fontWeight={500}
+        variant={isMobile ? "h4" : "h2"}
+        fontWeight={600}
         className={myFont.className}
-        mb={10}
+        mb={isMobile ? 5 : 10}
         color="#590112"
+        textAlign={isMobile && 'center'}
       >
         Let's count down the time with us!
       </Typography>
-      {isVisible && (
+      {isMobile ?
+        <Grid container spacing={2}>
+          {["Days", "Hours", "Minutes", "Seconds"].map((label, index) => {
+            const value = [
+              timeLeft.days,
+              timeLeft.hours,
+              timeLeft.minutes,
+              timeLeft.seconds,
+            ][index];
+            return (
+              <Grid item xs={6}
+                key={label}
+              >
+                <Stack
+                  direction={'column'}
+                  alignItems={'center'}
+                  justifyContent={'center'}
+                  spacing={3}
+                  border="3px solid #590112"
+                  borderRadius={5}
+                  height={'170px'}
+                >
+                  <Typography
+                    variant="h2"
+                    fontWeight={700}
+                    fontFamily='"Raleway", sans-serif'
+                    color="#590112"
+                    fontSize={"45px"}
+                  >
+                    {formatNumber(value)}
+                  </Typography>
+                  <Typography
+                    variant="h4"
+                    fontWeight={700}
+                    fontFamily={'"Raleway", sans-serif'}
+                    color="#590112"
+                    fontSize={"25px"}
+                  >
+                    {label}
+                  </Typography>
+                </Stack>
+
+              </Grid>
+            )
+          })}
+        </Grid> :
         <Stack
-          direction="row"
+          direction={{ xs: "column", md: "row" }}
           spacing={5}
           alignContent="center"
           justifyContent="center"
@@ -108,7 +158,7 @@ const SectionEight = () => {
                 <Typography
                   variant="h2"
                   fontWeight={700}
-                  fontFamily='"Bodoni Moda", sans-serif'
+                  fontFamily='"Raleway", sans-serif'
                   color="#590112"
                   fontSize={"95px"}
                 >
@@ -117,17 +167,17 @@ const SectionEight = () => {
                 <Typography
                   variant="h4"
                   fontWeight={700}
-                  fontFamily={'"Bodoni Moda", sans-serif'}
+                  fontFamily={'"Raleway", sans-serif'}
                   color="#590112"
                   fontSize={"40px"}
                 >
                   {label}
                 </Typography>
               </Stack>
-            );
+            )
           })}
-        </Stack>
-      )}
+        </Stack>}
+
     </Stack>
   );
 };

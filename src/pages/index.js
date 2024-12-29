@@ -52,7 +52,7 @@ const BackgroundSectionFiveStyle = styled("div")(() => ({
   padding: "0 40px",
   display: 'flex',
   alignItems: 'center',
-  // justifyContent: 'center',  
+  justifyContent: 'center',  
   minHeight: "100vh"
 }));
 

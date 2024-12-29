@@ -45,9 +45,10 @@ export default function SectionNine() {
       });
   
       const result = await response.json();
-      console.log(result);
+
+      alert('Your response has been recorded. Thank you!');
     } catch (error) {
-      console.error('Error:', error);
+      alert('An error occurred. Please contact the groom or the bride.');
     }
   };
   

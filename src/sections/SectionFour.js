@@ -131,9 +131,9 @@ export default function SectionFour() {
     >
       <Typography
         variant="h4"
-        sx={{ color: "#591C1C", fontWeight: 500, mb: 2, fontFamily: '"Bodoni Moda", sans-serif', fontSize: '50px', display: 'flex', flexDirection: 'row', gap: '10px' }}
+        sx={{ color: "#591C1C", fontWeight: 500, mb: 2, fontFamily: '"Bodoni Moda", sans-serif', fontSize: isMobile ? '27px' : '50px', display: 'flex', flexDirection: 'row', gap: '10px' }}
       >
-        Every couple has <span className={myFont.className} style={{ paddingLeft: '10px' }}>a story</span> <span><img src="/img/heart1.png" alt="heart" style={{ width: '100px', rotate: '30deg', paddingLeft: '10px', paddingBottom: '5px' }} /></span>
+        Every couple has <span className={myFont.className} style={{ paddingLeft: '10px' }}>a story</span> <span><img src="/img/heart1.png" alt="heart" style={{ width: isMobile ? '60px' : '100px', rotate: '30deg', paddingLeft: '10px', paddingBottom: '5px' }} /></span>
       </Typography>
 
       {isMobile ? (

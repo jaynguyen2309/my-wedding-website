@@ -1,18 +1,22 @@
-import { Stack, Typography, Box } from "@mui/material";
+import { Stack, Typography, Box, useTheme, useMediaQuery } from "@mui/material";
+import { myFont } from "./SectionOne";
 
 export default function SectionSeven() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
   return (
-    <Stack direction="column" maxWidth="1200px" margin="0 auto">
-      <Typography variant="h2" color="white" fontWeight={600} fontFamily='"Raleway", sans-serif' mb={10}>DRESSCODE</Typography>
-      <Stack direction="row" spacing={5}>
-        <img src="/img/dresscode-puzzle.png" alt="dresscode" />
+    <Stack direction="column" maxWidth={isMobile ? '400px' : "1200px"} margin="0 auto" p={isMobile && '30px 0px'}>
+      <Typography variant="h2" color="white" fontWeight={500} className={myFont.className} mb={10} textAlign={isMobile ? 'center' : 'left'}>Dresscode</Typography>
+      <Stack direction={{ xs: 'column', md: 'row' }} alignItems={isMobile && 'center'} spacing={5}>
+        <img src="/img/dresscode-puzzle.png" alt="dresscode" width={isMobile ? '200px' : 'auto'} />
         <Stack direction="column" justifyContent="space-between">
-          <Typography variant="body1" fontFamily={'"Bodoni Moda", sans-serif'} fontWeight={500} color="white" fontStyle={'italic'} fontSize={'35px'}>We kindly encourage our guests to
+          <Typography variant="body1" fontFamily={'"Bodoni Moda", sans-serif'} fontWeight={500} color="white" fontStyle={'italic'} fontSize={isMobile ? '20px' : '35px'}>We kindly encourage our guests to
             join us in wearing the following
             colors to our special day.</Typography>
-          <Box>
-            <Typography variant="body2" fontFamily={'"Bodoni Moda", sans-serif'} fontWeight={500} color="white" fontStyle={'italic'} fontSize={'30px'}>with love,</Typography>
-            <Typography variant="body2" fontFamily={'"Bodoni Moda", sans-serif'} fontWeight={500} color="white" fontStyle={'italic'} fontSize={'30px'}>D&H</Typography>
+          <Box pt={3}>
+            <Typography variant="body2" fontFamily={'"Bodoni Moda", sans-serif'} fontWeight={500} color="white" fontStyle={'italic'} fontSize={isMobile ? '15px' : '30px'}>with love,</Typography>
+            <Typography variant="body2" fontFamily={'"Bodoni Moda", sans-serif'} fontWeight={500} color="white" fontStyle={'italic'} fontSize={isMobile ? '15px' : '30px'}>D&H</Typography>
           </Box>
         </Stack>
       </Stack>
