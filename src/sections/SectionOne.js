@@ -64,7 +64,6 @@ export default function SectionOne() {
             sx={{
               color: "#4A1010",
               fontSize: "3rem",
-              // fontFamily: "'Dancing Script', cursive",
               margin: "-10rem 0 6rem 0",
               zIndex: 1000
             }}
@@ -85,13 +84,13 @@ export default function SectionOne() {
           </Typography>
         </>
       ) :
-        <div style={{ position: 'absolute', top: '40%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+        <div style={{ position: 'absolute', top: '45%', left: '50%', transform: 'translate(-50%, -50%)' }}>
           <Typography
+            className={myFont.className}
             sx={{
               color: "#4A1010",
-              fontSize: "40px",
-              fontFamily: "'Dancing Script', cursive",
-              margin: "4rem 0 12rem 0",
+              fontSize: "35px",
+              margin: "4rem 0 11rem 0",
               zIndex: 1000,
               textAlign: 'center'
             }}
