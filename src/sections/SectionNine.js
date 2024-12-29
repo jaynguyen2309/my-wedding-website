@@ -27,29 +27,59 @@ export default function SectionNine() {
   const textFieldWidth = isMobile ? 'auto' : '335px';
 
   const handleSubmit = async () => {
-    const response = going ? "Going" : "Not Going";
-    const data = {
-      name,
-      guests,
-      dietaryRequirements,
-      response,
-    };
+    // Form validation
+    if (!name.trim()) {
+      alert('Please enter your name');
+      return;
+    }
+
+    if (!going && !miss) {
+      alert('Please select whether you are attending or not');
+      return;
+    }
+
+    if (going && !guests.trim()) {
+      alert('Please enter number of guests');
+      return;
+    }
 
     try {
-      const res = await fetch("https://script.google.com/macros/s/AKfycbx_j55NDaBSFXXI64nENHn9ZW1BZZtIEbf_oYWD3JfA95IYZKdmvxV6uPsXNiKczcs/exec", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8',
-        },
-        body: JSON.stringify(data),
-      });
-      const result = await res.json();
-      if (result.result === "success") {
-        alert("Response recorded!");
+      // Prepare the data
+      const formData = {
+        name,
+        going,
+        guests: going ? guests : null,
+        dietaryRequirements: going ? dietaryRequirements : null
+      };
+
+      // Replace DEPLOY_ID with your Google Apps Script deployment ID
+      const response = await fetch(
+        'https://script.google.com/macros/s/AKfycbw5IFAZ1s_JbtVHSMKC0zqrykcIbrF_RvTrZCM2vXNE41N_6pUBjAm6x-SLUFXzeY3P/exec',
+        {
+          method: 'POST',
+          body: JSON.stringify(formData),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      const result = await response.json();
+
+      if (result.status === 'success') {
+        alert('Thank you for your RSVP!');
+        // Reset form
+        setName('');
+        setGuests('');
+        setDietaryRequirements('');
+        setGoing(false);
+        setMiss(false);
+      } else {
+        throw new Error(result.message || 'Failed to submit RSVP');
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("Failed to submit form.");
+      alert('Sorry, there was an error submitting your RSVP. Please try again.');
+      console.error('RSVP submission error:', error);
     }
   };
 
@@ -68,7 +98,12 @@ export default function SectionNine() {
               <Typography variant="body1" fontFamily={'"Raleway", sans-serif'} fontWeight={600} color={'#590112'}>
                 Name of Guest
               </Typography>
-              <TextField size="small" sx={{ width: textFieldWidth }} />
+              <TextField
+                size="small"
+                sx={{ width: textFieldWidth }}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </Stack>
             <Stack direction={'row'} alignItems={'center'} justifyContent={'center'} spacing={2}>
               <Stack onClick={handleClickGoing} backgroundColor={going && '#ffffff'} direction={'column'} alignItems={'center'} justifyContent={'center'} spacing={2} p={2} border={going ? '2px solid #590112' : '1px solid #d3d3d3'} borderRadius={5} sx={{ ':hover': { cursor: 'pointer' } }}>
@@ -86,13 +121,23 @@ export default function SectionNine() {
                   <Typography variant="body1" fontFamily={'"Raleway", sans-serif'} fontWeight={600} color={'#590112'}>
                     Number of guests
                   </Typography>
-                  <TextField size="small" sx={{ width: textFieldWidth }} />
+                  <TextField
+                    size="small"
+                    sx={{ width: textFieldWidth }}
+                    value={guests}
+                    onChange={(e) => setGuests(e.target.value)}
+                  />
                 </Stack>
                 <Stack direction={'column'} spacing={1} alignItems={'center'} justifyContent={'center'}>
                   <Typography variant="body1" fontFamily={'"Raleway", sans-serif'} fontWeight={600} color={'#590112'}>
                     Dietary requirements
                   </Typography>
-                  <TextField size="small" sx={{ width: textFieldWidth }} />
+                  <TextField
+                    size="small"
+                    sx={{ width: textFieldWidth }}
+                    value={dietaryRequirements}
+                    onChange={(e) => setDietaryRequirements(e.target.value)}
+                  />
                 </Stack>
               </>
             )}
