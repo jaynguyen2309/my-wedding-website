@@ -36,10 +36,10 @@ export default function SectionNine() {
     };
 
     try {
-      const res = await fetch("https://script.google.com/macros/s/AKfycbzBEVBY1un3ADOtCcDLT2T-quNzr0iAK0blvJWsPC6ZB35cdr65skS1IHKnHMRg0NkC/exec", {
+      const res = await fetch("https://script.google.com/macros/s/AKfycbx_j55NDaBSFXXI64nENHn9ZW1BZZtIEbf_oYWD3JfA95IYZKdmvxV6uPsXNiKczcs/exec", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'text/plain;charset=utf-8',
         },
         body: JSON.stringify(data),
       });
