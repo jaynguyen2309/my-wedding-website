@@ -61,6 +61,8 @@ const BackgroundSectionSixStyle = styled("div")(() => ({
   padding: "0 40px",
   display: 'flex',
   backgroundColor: '#ffffff',
+  justifyContent: 'center',
+  alignItems: 'center'
 }));
 
 const BackgroundSectionEightStyle = styled("div")(() => ({
@@ -77,7 +79,7 @@ const BackgroundSectionEightStyle = styled("div")(() => ({
 }));
 
 const BackgroundSectionTenStyle = styled("div")(() => ({
-  backgroundImage: 'url("../img/background10.jpg")',
+  backgroundImage: 'url("../img/background-section1.jpg")',
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
   backgroundAttachment: "fixed",
