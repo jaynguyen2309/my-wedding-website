@@ -22,6 +22,7 @@ const BackgroundSectionOneStyle = styled("div")(() => ({
   objectFit: "cover",
   padding: "0 40px",
   minHeight: "100vh",
+  backgroundColor: '#ffffff'
 }));
 
 const BackgroundSectionTwoStyle = styled("div")(() => ({
@@ -44,7 +45,8 @@ const BackgroundSectionThreeStyle = styled("div")(() => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  minHeight: "100vh"
+  minHeight: "100vh",
+  backgroundColor: '#ffffff'
 }));
 
 const BackgroundSectionFiveStyle = styled("div")(() => ({
@@ -75,7 +77,8 @@ const BackgroundSectionEightStyle = styled("div")(() => ({
   padding: "0 40px",
   display: 'flex',
   minHeight: "100vh",
-  opacity: 0.9
+  opacity: 0.9,
+  backgroundColor: '#ffffff'
 }));
 
 const BackgroundSectionTenStyle = styled("div")(() => ({
@@ -90,6 +93,7 @@ const BackgroundSectionTenStyle = styled("div")(() => ({
   alignItems: 'center',
   justifyContent: 'center',
   minHeight: "100vh",
+  backgroundColor: '#ffffff'
 }));
 
 export default function Home() {
