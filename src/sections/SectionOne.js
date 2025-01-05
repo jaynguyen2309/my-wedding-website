@@ -24,36 +24,40 @@ export default function SectionOne() {
     >
       {/* Photo Grid */}
       <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 3, sm: 8 }} display={'flex'} justifyContent={'center'} alignItems={'center'}>
-        <img
-          src="../../img/image1.jpg"
-          alt="Wedding couple side photo"
-          style={{
-            width: isLargeScreen ? "100%" : isMediumScreen ? "50%" : "auto",
-            height: isLargeScreen ? '550px' : isMediumScreen ? '450px' : '250px',
-            objectFit: "cover",
-            borderRadius: "4px",
-          }}
-        />
+        {!isMobileScreen &&
+          <img
+            src="../../img/image1.jpg"
+            alt="Wedding couple side photo"
+            style={{
+              width: isLargeScreen ? "100%" : isMediumScreen ? "50%" : "auto",
+              height: isLargeScreen ? '550px' : isMediumScreen ? '450px' : '250px',
+              objectFit: "cover",
+              borderRadius: "20px",
+            }}
+          />}
+
         <img
           src="https://cuoidichochi.my.canva.site/media/44421081d029c10ac3bbffcd6b94f368.jpg"
           alt="Wedding couple main photo"
           style={{
             width: isLargeScreen ? "100%" : isMediumScreen ? "50%" : "auto",
-            height: isLargeScreen ? '650px' : isMediumScreen ? '550px' : '300px',
+            height: isLargeScreen ? '650px' : isMediumScreen ? '550px' : '500px',
             objectFit: "cover",
-            borderRadius: "4px"
+            borderRadius: "20px"
           }}
         />
-        <img
-          src="https://cuoidichochi.my.canva.site/media/99cb877294d37824423cb7ef7ab80f86.jpg"
-          alt="Bride photo"
-          style={{
-            width: isLargeScreen ? "100%" : isMediumScreen ? "50%" : "auto",
-            height: isLargeScreen ? '550px' : isMediumScreen ? '450px' : '250px',
-            objectFit: "cover",
-            borderRadius: "4px",
-          }}
-        />
+        {!isMobileScreen &&
+          <img
+            src="https://cuoidichochi.my.canva.site/media/99cb877294d37824423cb7ef7ab80f86.jpg"
+            alt="Bride photo"
+            style={{
+              width: isLargeScreen ? "100%" : isMediumScreen ? "50%" : "auto",
+              height: isLargeScreen ? '550px' : isMediumScreen ? '450px' : '250px',
+              objectFit: "cover",
+              borderRadius: "20px",
+            }}
+          />}
+
       </Stack>
 
       {!isMobileScreen ? (
@@ -84,25 +88,41 @@ export default function SectionOne() {
           </Typography>
         </>
       ) :
-        <div style={{ position: 'absolute', top: '45%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-          <Typography
-            className={myFont.className}
-            sx={{
-              color: "#4A1010",
-              fontSize: "35px",
-              margin: "4rem 0 11rem 0",
-              zIndex: 1000,
-              textAlign: 'center'
-            }}
-          >
-            Quang Duy & Thanh Huyen
-          </Typography>
+        <div>
+          <div style={{ margin: '40px 0 35px' }}>
+            <Typography
+              className={myFont.className}
+              sx={{
+                color: "#4A1010",
+                fontSize: "45px",
+                zIndex: 1000,
+                textAlign: 'center',
+                marginRight: '60px',
+                marginBottom: '20px'
+              }}
+            >
+              Quang Duy &
+            </Typography>
+            <Typography
+              className={myFont.className}
+              sx={{
+                color: "#4A1010",
+                fontSize: "45px",
+                zIndex: 1000,
+                textAlign: 'center',
+                marginLeft: '80px'
+              }}
+            >
+              Thanh Huyen
+            </Typography>
+          </div>
+
 
           {/* Quote */}
           <Typography
             sx={{
               color: "#4A1010",
-              fontSize: "0.8rem",
+              fontSize: "0.7rem",
               textTransform: "uppercase",
               letterSpacing: "2px",
               textAlign: 'center'

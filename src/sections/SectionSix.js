@@ -19,7 +19,7 @@ export default function SectionSix() {
           K5 Nghi Tam, 11 Xuan Dieu Road, Tay Ho, Hanoi, Vietnam
         </Typography>
       </Box>
-      <img src="/img/sheraton.jpg" alt="map" style={{ maxHeight: '700px', height: '100%', padding: isMobile ? '20px' : '50px' }} />
+      <img src="/img/sheraton.jpg" alt="map" style={{ maxHeight: '500px', height: '100%', padding: isMobile ? '20px' : '50px' }} />
     </Stack>
   )
 }

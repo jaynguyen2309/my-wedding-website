@@ -33,7 +33,7 @@ export default function SectionNine() {
     formData.append('number of guests', guests);
     formData.append('dietary', dietaryRequirements);
     formData.append('going', going ? 'Yes' : miss ? 'No' : 'Not sure');
-  
+
     const Sheet_Url = "https://script.google.com/macros/s/AKfycbyt3UxAHjAdzXgD54QqugMAqN2UeAKBq-VdO-dZSoOFngRy1y6A9scz79PRnxYsqB54/exec";
     try {
       const response = await fetch(Sheet_Url, {
@@ -43,7 +43,7 @@ export default function SectionNine() {
         },
         body: formData.toString(),
       });
-  
+
       const result = await response.json();
 
       alert('Your response has been recorded. Thank you!');
@@ -51,7 +51,7 @@ export default function SectionNine() {
       alert('An error occurred. Please contact the groom or the bride.');
     }
   };
-  
+
 
   return (
     <Stack alignItems={'center'} maxWidth={'1200px'} margin={'0 auto'}>
@@ -59,11 +59,11 @@ export default function SectionNine() {
       <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'} spacing={20}>
         {!isMobile && (<img src="/img/rsvp.jpg" alt="rsvp" style={{ maxHeight: '600px', height: '100%', borderRadius: '20px' }} />)}
 
-        <Stack direction={'column'} spacing={5} alignItems={'center'} justifyContent={'center'}>
-          <Typography variant="h2" fontWeight={700} className={myFont.className} color="white" fontSize={'30px'}>
+        <Stack direction={'column'} spacing={5} alignItems={'center'} justifyContent={'center'} pt={isMobile && 15}>
+          <Typography variant="h1" fontWeight={700} className={myFont.className} color="white" fontSize={'30px'} pb={isMobile && 5}>
             RSVP
           </Typography>
-          <Stack direction={'column'} spacing={2} alignItems={'center'} justifyContent={'center'} width={isMobile ? 'auto' : '500px'} sx={{ backgroundColor: 'white' }} borderRadius={'20px'} padding={2}>
+          <Stack direction={'column'} spacing={4} alignItems={'center'} justifyContent={'center'} width={isMobile ? 'auto' : '500px'} sx={{ backgroundColor: 'white' }} borderRadius={'20px'} padding={2} height={isMobile && '450px'}>
             <Stack direction={'column'} spacing={1} alignItems={'center'} justifyContent={'center'}>
               <Typography variant="body1" fontFamily={'"Raleway", sans-serif'} fontWeight={600} color={'#590112'}>
                 Name of Guest

@@ -6,7 +6,7 @@ export default function SectionTwo() {
   const isMediumScreen = useMediaQuery(theme.breakpoints.between('md', 'xl'));
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
-  const imageHeight = isLargeScreen ? '100vh' : isMediumScreen ? '630px' : '400px';
+  const imageHeight = isLargeScreen ? '100vh' : isMediumScreen ? '630px' : '350px';
 
   return (
     <Stack

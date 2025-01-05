@@ -71,7 +71,7 @@ const SectionEight = () => {
       role="region"
       aria-labelledby="countdown-title"
       marginTop={isMobile ? 5 : 10}
-      justifyContent={'center'}
+      justifyContent={!isMobile && 'center'}
     >
       <Typography
         id="countdown-title"
@@ -79,13 +79,14 @@ const SectionEight = () => {
         fontWeight={600}
         className={myFont.className}
         mb={isMobile ? 5 : 10}
+        mt={isMobile && 10}
         color="#590112"
         textAlign={isMobile && 'center'}
       >
         Let's count down the time with us!
       </Typography>
       {isMobile ?
-        <Grid container spacing={2}>
+        <Grid container spacing={4}>
           {["Days", "Hours", "Minutes", "Seconds"].map((label, index) => {
             const value = [
               timeLeft.days,
@@ -104,23 +105,23 @@ const SectionEight = () => {
                   spacing={3}
                   border="3px solid #590112"
                   borderRadius={5}
-                  height={'170px'}
+                  height={'250px'}
                 >
                   <Typography
                     variant="h2"
                     fontWeight={700}
-                    fontFamily='"Raleway", sans-serif'
+                    // fontFamily='"Raleway", sans-serif'
                     color="#590112"
-                    fontSize={"45px"}
+                    fontSize={"60px"}
                   >
                     {formatNumber(value)}
                   </Typography>
                   <Typography
                     variant="h4"
                     fontWeight={700}
-                    fontFamily={'"Raleway", sans-serif'}
+                    // fontFamily={'"Raleway", sans-serif'}
                     color="#590112"
-                    fontSize={"25px"}
+                    fontSize={"30px"}
                   >
                     {label}
                   </Typography>
@@ -158,7 +159,7 @@ const SectionEight = () => {
                 <Typography
                   variant="h2"
                   fontWeight={700}
-                  fontFamily='"Raleway", sans-serif'
+                  // fontFamily='"Raleway", sans-serif'
                   color="#590112"
                   fontSize={"95px"}
                 >
@@ -167,7 +168,7 @@ const SectionEight = () => {
                 <Typography
                   variant="h4"
                   fontWeight={700}
-                  fontFamily={'"Raleway", sans-serif'}
+                  // fontFamily={'"Raleway", sans-serif'}
                   color="#590112"
                   fontSize={"40px"}
                 >
