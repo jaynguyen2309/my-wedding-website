@@ -37,7 +37,7 @@ const BackgroundSectionTwoStyle = styled("div")(() => ({
 }));
 
 const BackgroundSectionThreeStyle = styled("div")(() => ({
-  backgroundImage: 'url("../img/background3.png")',
+  backgroundImage: 'url("../img/background-section1.jpg")',
   backgroundRepeat: "repeat-y",
   backgroundPosition: "center",
   backgroundAttachment: "fixed",
@@ -79,7 +79,7 @@ const BackgroundSectionSevenStyle = styled("div")(({ isMobile }) => ({
 }));
 
 const BackgroundSectionEightStyle = styled("div")(() => ({
-  backgroundImage: 'url("../img/background8.jpg")',
+  backgroundImage: 'url("../img/background-section1.jpg")',
   backgroundRepeat: "repeat-y",
   backgroundPosition: "center",
   backgroundAttachment: "fixed",
@@ -154,7 +154,7 @@ export default function Home() {
         <SectionTen />
       </BackgroundSectionTenStyle>}
 
-      {isMobile ? <BackgroundSectionOneStyle><SectionElevenMobile /></BackgroundSectionOneStyle> : <BackgroundSectionFiveStyle>
+      {isMobile ? <BackgroundSectionTwoStyle><SectionElevenMobile /></BackgroundSectionTwoStyle> : <BackgroundSectionFiveStyle>
         <SectionEleven />
       </BackgroundSectionFiveStyle>}
 

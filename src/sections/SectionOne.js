@@ -41,7 +41,7 @@ export default function SectionOne() {
           alt="Wedding couple main photo"
           style={{
             width: isLargeScreen ? "100%" : isMediumScreen ? "50%" : "auto",
-            height: isLargeScreen ? '650px' : isMediumScreen ? '550px' : '500px',
+            height: isLargeScreen ? '650px' : isMediumScreen ? '550px' : '400px',
             objectFit: "cover",
             borderRadius: "20px"
           }}

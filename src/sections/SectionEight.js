@@ -79,9 +79,9 @@ const SectionEight = () => {
         fontWeight={600}
         className={myFont.className}
         mb={isMobile ? 5 : 10}
-        mt={isMobile && 10}
+        mt={isMobile && 3}
         color="#590112"
-        textAlign={isMobile && 'center'}
+        textAlign={'center'}
       >
         Let's count down the time with us!
       </Typography>
@@ -105,7 +105,7 @@ const SectionEight = () => {
                   spacing={3}
                   border="3px solid #590112"
                   borderRadius={5}
-                  height={'250px'}
+                  height={'200px'}
                 >
                   <Typography
                     variant="h2"
