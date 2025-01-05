@@ -12,6 +12,8 @@ import SectionTen from "@/sections/SectionTen";
 import SectionEleven from "@/sections/SectionEleven";
 import SectionTwelve from "@/sections/SectionTwelve";
 import { styled } from "@mui/system";
+import { useMediaQuery, useTheme } from "@mui/material";
+import SectionElevenMobile from "@/sections/SectionElevenMobile";
 
 const BackgroundSectionOneStyle = styled("div")(() => ({
   backgroundImage: 'url("../img/background-section1.jpg")',
@@ -36,7 +38,7 @@ const BackgroundSectionTwoStyle = styled("div")(() => ({
 
 const BackgroundSectionThreeStyle = styled("div")(() => ({
   backgroundImage: 'url("../img/background3.png")',
-  backgroundRepeat: "no-repeat",
+  backgroundRepeat: "repeat-y",
   backgroundPosition: "center",
   backgroundAttachment: "fixed",
   backgroundSize: "cover",
@@ -54,7 +56,7 @@ const BackgroundSectionFiveStyle = styled("div")(() => ({
   padding: "0 40px",
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',  
+  justifyContent: 'center',
   minHeight: "100vh"
 }));
 
@@ -67,9 +69,18 @@ const BackgroundSectionSixStyle = styled("div")(() => ({
   alignItems: 'center'
 }));
 
+const BackgroundSectionSevenStyle = styled("div")(({ isMobile }) => ({
+  backgroundColor: '#590112',
+  padding: "0 40px",
+  display: 'flex',
+  alignItems: !isMobile && 'center',
+  justifyContent: 'center',
+  minHeight: "100vh"
+}));
+
 const BackgroundSectionEightStyle = styled("div")(() => ({
   backgroundImage: 'url("../img/background8.jpg")',
-  backgroundRepeat: "no-repeat",
+  backgroundRepeat: "repeat-y",
   backgroundPosition: "center",
   backgroundAttachment: "fixed",
   backgroundSize: "cover",
@@ -81,9 +92,18 @@ const BackgroundSectionEightStyle = styled("div")(() => ({
   backgroundColor: '#ffffff'
 }));
 
+const BackgroundSectionNineStyle = styled("div")(({ isMobile }) => ({
+  backgroundColor: '#590112',
+  padding: "0 40px",
+  display: 'flex',
+  alignItems: !isMobile && 'center',
+  justifyContent: 'center',
+  minHeight: "100vh"
+}));
+
 const BackgroundSectionTenStyle = styled("div")(() => ({
   backgroundImage: 'url("../img/background-section1.jpg")',
-  backgroundRepeat: "no-repeat",
+  backgroundRepeat: "repeat-y",
   backgroundPosition: "center",
   backgroundAttachment: "fixed",
   backgroundSize: "cover",
@@ -97,6 +117,9 @@ const BackgroundSectionTenStyle = styled("div")(() => ({
 }));
 
 export default function Home() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
   return (
     <>
       <BackgroundSectionOneStyle>
@@ -118,21 +141,23 @@ export default function Home() {
       <BackgroundSectionSixStyle>
         <SectionSix />
       </BackgroundSectionSixStyle>
-      <BackgroundSectionFiveStyle>
+      <BackgroundSectionSevenStyle isMobile={isMobile}>
         <SectionSeven />
-      </BackgroundSectionFiveStyle>
+      </BackgroundSectionSevenStyle>
       <BackgroundSectionEightStyle>
         <SectionEight />
       </BackgroundSectionEightStyle>
-      <BackgroundSectionFiveStyle>
+      <BackgroundSectionNineStyle isMobile={isMobile}>
         <SectionNine />
-      </BackgroundSectionFiveStyle>
-      <BackgroundSectionTenStyle>
+      </BackgroundSectionNineStyle>
+      {!isMobile && <BackgroundSectionTenStyle>
         <SectionTen />
-      </BackgroundSectionTenStyle>
-      <BackgroundSectionFiveStyle>
+      </BackgroundSectionTenStyle>}
+
+      {isMobile ? <BackgroundSectionOneStyle><SectionElevenMobile /></BackgroundSectionOneStyle> : <BackgroundSectionFiveStyle>
         <SectionEleven />
-      </BackgroundSectionFiveStyle>
+      </BackgroundSectionFiveStyle>}
+
       <BackgroundSectionThreeStyle>
         <SectionTwelve />
       </BackgroundSectionThreeStyle>
