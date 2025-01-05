@@ -59,7 +59,7 @@ export default function SectionNine() {
       <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'} spacing={20}>
         {!isMobile && (<img src="/img/rsvp.jpg" alt="rsvp" style={{ maxHeight: '600px', height: '100%', borderRadius: '20px' }} />)}
 
-        <Stack direction={'column'} spacing={5} alignItems={'center'} justifyContent={'center'} pt={isMobile && 15}>
+        <Stack direction={'column'} spacing={5} alignItems={'center'} justifyContent={'center'} pt={isMobile && 10} pb={10}>
           <Typography variant="h1" fontWeight={700} className={myFont.className} color="white" fontSize={'30px'} pb={isMobile && 5}>
             RSVP
           </Typography>
