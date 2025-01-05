@@ -41,7 +41,7 @@ export default function SectionOne() {
           alt="Wedding couple main photo"
           style={{
             width: isLargeScreen ? "100%" : isMediumScreen ? "50%" : "auto",
-            height: isLargeScreen ? '650px' : isMediumScreen ? '550px' : '400px',
+            height: isLargeScreen ? '650px' : isMediumScreen ? '550px' : '370px',
             objectFit: "cover",
             borderRadius: "20px"
           }}
@@ -94,7 +94,7 @@ export default function SectionOne() {
               className={myFont.className}
               sx={{
                 color: "#4A1010",
-                fontSize: "45px",
+                fontSize: "40px",
                 zIndex: 1000,
                 textAlign: 'center',
                 marginRight: '60px',
@@ -107,7 +107,7 @@ export default function SectionOne() {
               className={myFont.className}
               sx={{
                 color: "#4A1010",
-                fontSize: "45px",
+                fontSize: "40px",
                 zIndex: 1000,
                 textAlign: 'center',
                 marginLeft: '80px'
