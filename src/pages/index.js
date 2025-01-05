@@ -14,6 +14,9 @@ import SectionTwelve from "@/sections/SectionTwelve";
 import { styled } from "@mui/system";
 import { useMediaQuery, useTheme } from "@mui/material";
 import SectionElevenMobile from "@/sections/SectionElevenMobile";
+import { useRef, useState, useEffect } from "react";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import Fab from "@mui/material/Fab";
 
 const BackgroundSectionOneStyle = styled("div")(() => ({
   backgroundImage: 'url("../img/background-section1.jpg")',
@@ -118,12 +121,54 @@ const BackgroundSectionTenStyle = styled("div")(() => ({
 
 export default function Home() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const sectionFourRef = useRef(null);
+  const sectionNineRef = useRef(null);
+  const sectionElevenRef = useRef(null);
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  const handleScrollToSectionFour = () => {
+    if (sectionFourRef.current) {
+      sectionFourRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleScrollToSectionNine = () => {
+    if (sectionNineRef.current) {
+      sectionNineRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleScrollToSectionEleven = () => {
+    if (sectionElevenRef.current) {
+      sectionElevenRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollButton(window.scrollY > 200);
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
       <BackgroundSectionOneStyle>
-        <TopNavBar />
+        <TopNavBar
+          isMobile={isMobile}
+          onOurStoryClick={handleScrollToSectionFour}
+          onRSVPClick={handleScrollToSectionNine}
+          onContactUsClick={handleScrollToSectionEleven}
+        />
         <SectionOne />
       </BackgroundSectionOneStyle>
       <BackgroundSectionTwoStyle>
@@ -132,7 +177,7 @@ export default function Home() {
       <BackgroundSectionThreeStyle>
         <SectionThree />
       </BackgroundSectionThreeStyle>
-      <BackgroundSectionTwoStyle>
+      <BackgroundSectionTwoStyle ref={sectionFourRef}>
         <SectionFour />
       </BackgroundSectionTwoStyle>
       <BackgroundSectionFiveStyle>
@@ -147,20 +192,41 @@ export default function Home() {
       <BackgroundSectionEightStyle>
         <SectionEight />
       </BackgroundSectionEightStyle>
-      <BackgroundSectionNineStyle isMobile={isMobile}>
+      <BackgroundSectionNineStyle isMobile={isMobile} ref={sectionNineRef}>
         <SectionNine />
       </BackgroundSectionNineStyle>
-      {!isMobile && <BackgroundSectionTenStyle>
-        <SectionTen />
-      </BackgroundSectionTenStyle>}
-
-      {isMobile ? <BackgroundSectionTwoStyle><SectionElevenMobile /></BackgroundSectionTwoStyle> : <BackgroundSectionFiveStyle>
-        <SectionEleven />
-      </BackgroundSectionFiveStyle>}
-
+      {!isMobile && (
+        <BackgroundSectionTenStyle>
+          <SectionTen />
+        </BackgroundSectionTenStyle>
+      )}
+      {isMobile ? (
+        <BackgroundSectionTwoStyle ref={sectionElevenRef}>
+          <SectionElevenMobile />
+        </BackgroundSectionTwoStyle>
+      ) : (
+        <BackgroundSectionFiveStyle ref={sectionElevenRef}>
+          <SectionEleven />
+        </BackgroundSectionFiveStyle>
+      )}
       <BackgroundSectionThreeStyle>
         <SectionTwelve />
       </BackgroundSectionThreeStyle>
+      {showScrollButton && (
+        <Fab
+          color="primary"
+          size="small"
+          onClick={handleScrollToTop}
+          sx={{
+            position: "fixed",
+            bottom: 16,
+            right: 16,
+            zIndex: 1000,
+          }}
+        >
+          <ArrowUpwardIcon />
+        </Fab>
+      )}
     </>
   );
 }

@@ -75,10 +75,10 @@ const SectionEight = () => {
     >
       <Typography
         id="countdown-title"
-        variant={isMobile ? "h4" : "h2"}
+        variant={isMobile ? "h3" : "h2"}
         fontWeight={600}
         className={myFont.className}
-        mb={isMobile ? 5 : 10}
+        mb={isMobile ? 7 : 10}
         mt={isMobile && 3}
         color="#590112"
         textAlign={'center'}
@@ -112,7 +112,7 @@ const SectionEight = () => {
                     fontWeight={700}
                     // fontFamily='"Raleway", sans-serif'
                     color="#590112"
-                    fontSize={"60px"}
+                    fontSize={"50px"}
                   >
                     {formatNumber(value)}
                   </Typography>

@@ -63,7 +63,7 @@ export default function SectionNine() {
           <Typography variant="h1" fontWeight={700} className={myFont.className} color="white" fontSize={'30px'} pb={isMobile && 5}>
             RSVP
           </Typography>
-          <Stack direction={'column'} spacing={4} alignItems={'center'} justifyContent={'center'} width={isMobile ? 'auto' : '500px'} sx={{ backgroundColor: 'white' }} borderRadius={'20px'} padding={2} height={isMobile && '450px'}>
+          <Stack direction={'column'} spacing={4} alignItems={'center'} justifyContent={'center'} width={isMobile ? 'auto' : '500px'} sx={{ backgroundColor: 'white' }} borderRadius={'20px'} padding={2}>
             <Stack direction={'column'} spacing={1} alignItems={'center'} justifyContent={'center'}>
               <Typography variant="body1" fontFamily={'"Raleway", sans-serif'} fontWeight={600} color={'#590112'}>
                 Name of Guest
