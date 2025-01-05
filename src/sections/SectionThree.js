@@ -3,7 +3,7 @@ import { Stack, Grid, Typography } from '@mui/material';
 
 const SectionThree = () => {
   return (
-    <Grid container spacing={5} display="flex" direction="row" sx={{ maxWidth: '1200px', margin: '0 auto 20px' }}>
+    <Grid container spacing={5} display="flex" direction="row" sx={{ maxWidth: '1200px', margin: '0 auto 20px' }} color={'#590112'}>
       <Grid item xs={12} md={6}>
         <Stack direction={{ xs: 'column', md: 'row' }} spacing={3} alignItems={'center'}>
           <img
