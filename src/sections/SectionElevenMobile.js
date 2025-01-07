@@ -7,32 +7,40 @@ export default function SectionElevenMobile() {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
-    <Stack direction={'column'} alignItems={isMobile ? 'center' : 'flex-start'} justifyContent='center' maxWidth={isMobile ? '400px' : '1200px'} margin={'0 auto'} spacing={3} p={isMobile && '20px 0px'}>
-      <Typography variant="body1" fontWeight={600} fontFamily={'"Raleway", sans-serif'} fontSize={'25px'} textAlign={'center'}>
-        Contact us immediately if you need help!
+    <Stack direction={'column'} alignItems={'center'} maxWidth={isMobile ? '400px' : '1200px'} margin={'0 auto'} spacing={3} p={isMobile && '20px 0px'}>
+      <Typography variant="body1" fontWeight={600} fontFamily={'"Raleway", sans-serif'} fontSize={'30px'} textAlign={'center'} pt={5}>
+        Contact Us!
       </Typography>
       <Stack direction={{ xs: 'column', md: 'row' }} alignItems={'center'} justifyContent='center' spacing={isMobile ? 3 : 10}>
-        <img src="https://cuoidichochi.my.canva.site/media/f0e9336bbb877c20c1244168767d529f.jpg" alt="phone" style={{ width: isMobile ? '300px' : '400px', height: '250px', objectFit: 'cover', objectPosition: '-10% 10%' }} />
-        <Stack direction={'column'} alignItems={'flex-start'} justifyContent='center' spacing={1}>
-          <Typography variant="h3" fontWeight={500} className={myFont.className} fontSize={'50px'} textAlign={'center'} pb={3}>
-            Quang Duy
+        <img src="https://cuoidichochi.my.canva.site/media/b7005d279f3dbe557f6e085b060265d0.jpg" alt="phone" style={{ width: '300px', height: '300px', objectFit: 'cover', objectPosition: '-10% 40%', borderRadius: '50%' }} />
+        <Stack direction={'column'} justifyContent='center' spacing={3}>
+          <Typography
+            className={myFont.className}
+            sx={{
+              color: "#4A1010",
+              fontSize: "40px",
+              zIndex: 1000,
+              textAlign: 'center',
+              marginRight: '60px',
+              marginBottom: '20px'
+            }}
+          >
+            Quang Duy &
           </Typography>
-          <Typography variant="h3" fontWeight={600} fontFamily={'"Raleway", sans-serif'} fontSize={'25px'} textAlign={'center'} pb={3}>
-            The groom
-          </Typography>
-          <Button startIcon={<Call fontSize="large" />} variant="contained" sx={{ backgroundColor: '#590112', color: '#e0d7cf', fontWeight: 600, fontFamily: '"Raleway", sans-serif', fontSize: '20px', padding: '10px 20px', borderRadius: '30px', "&:hover": { backgroundColor: '#e0d7cf', color: '#590112' } }}>Call Now</Button>
-        </Stack>
-      </Stack>
-      <Stack direction={{ xs: 'column', md: 'row' }} alignItems={'center'} justifyContent='center' spacing={isMobile ? 5 : 10}>
-        <img src="https://cuoidichochi.my.canva.site/media/7648da573c84ba1509e1d7dd9062dc07.jpg" alt="phone" style={{ width: isMobile ? '300px' : '400px', height: '250px', objectFit: 'cover', objectPosition: '-10% 20%' }} />
-        <Stack direction={'column'} alignItems={'flex-start'} justifyContent='center' spacing={1}>
-          <Typography variant="h3" fontWeight={500} className={myFont.className} fontSize={'50px'} textAlign={'center'} pb={5}>
+          <Typography
+            className={myFont.className}
+            sx={{
+              color: "#4A1010",
+              fontSize: "40px",
+              zIndex: 1000,
+              textAlign: 'center',
+              marginLeft: '80px'
+            }}
+          >
             Thanh Huyen
           </Typography>
-          <Typography variant="h3" fontWeight={600} fontFamily={'"Raleway", sans-serif'} fontSize={'25px'} textAlign={'center'} pb={3}>
-            The bride
-          </Typography>
-          <Button startIcon={<Call fontSize="large" />} variant="contained" sx={{ backgroundColor: '#590112', color: '#e0d7cf', fontWeight: 600, fontFamily: '"Raleway", sans-serif', fontSize: '20px', padding: '10px 20px', borderRadius: '30px', "&:hover": { backgroundColor: '#e0d7cf', color: '#590112' } }}>Call Now</Button>
+          <Button startIcon={<Call fontSize="large" />} variant="contained" sx={{ backgroundColor: '#590112', color: '#e0d7cf', fontWeight: 600, fontFamily: '"Raleway", sans-serif', fontSize: '20px', padding: '10px 20px', borderRadius: '30px', "&:hover": { backgroundColor: '#e0d7cf', color: '#590112' } }}>Call the groom</Button>
+          <Button startIcon={<Call fontSize="large" />} variant="contained" sx={{ backgroundColor: '#590112', color: '#e0d7cf', fontWeight: 600, fontFamily: '"Raleway", sans-serif', fontSize: '20px', padding: '10px 20px', borderRadius: '30px', "&:hover": { backgroundColor: '#e0d7cf', color: '#590112' } }}>Call the bride</Button>
         </Stack>
       </Stack>
     </Stack>

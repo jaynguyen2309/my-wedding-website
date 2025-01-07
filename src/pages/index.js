@@ -39,6 +39,16 @@ const BackgroundSectionTwoStyle = styled("div")(() => ({
   backgroundColor: '#ffffff',
 }));
 
+const BackgroundSectionElevenMobileStyle = styled("div")(() => ({
+  minHeight: "100vh",
+  padding: "0 40px",
+  display: 'flex',
+  backgroundColor: '#ffffff',
+  // alignItems: 'center',
+  justifyContent: 'center',
+}));
+
+
 const BackgroundSectionThreeStyle = styled("div")(() => ({
   backgroundImage: 'url("../img/background-section1.jpg")',
   backgroundRepeat: "repeat-y",
@@ -201,9 +211,9 @@ export default function Home() {
         </BackgroundSectionTenStyle>
       )}
       {isMobile ? (
-        <BackgroundSectionTwoStyle ref={sectionElevenRef}>
+        <BackgroundSectionElevenMobileStyle ref={sectionElevenRef}>
           <SectionElevenMobile />
-        </BackgroundSectionTwoStyle>
+        </BackgroundSectionElevenMobileStyle>
       ) : (
         <BackgroundSectionFiveStyle ref={sectionElevenRef}>
           <SectionEleven />
