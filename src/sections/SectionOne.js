@@ -179,7 +179,7 @@ export default function SectionOne() {
         </>
       ) : (
         <div>
-          <div style={{ margin: '30px 0 30px' }}>
+          <div style={{ margin: '20px 0 30px' }}>
             <Typography
               className={`${myFont.className} animate-on-scroll`}
               sx={{
@@ -191,7 +191,6 @@ export default function SectionOne() {
                 marginBottom: '10px',
                 ...animationStyle,
                 transitionDelay: '0.6s',
-                lineHeight: '2'
               }}
             >
               Quang Duy &
@@ -206,7 +205,6 @@ export default function SectionOne() {
                 marginLeft: '80px',
                 ...animationStyle,
                 transitionDelay: '0.8s',
-                lineHeight: '2'
               }}
             >
               Thanh Huyen
