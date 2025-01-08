@@ -184,13 +184,14 @@ export default function SectionOne() {
               className={`${myFont.className} animate-on-scroll`}
               sx={{
                 color: "#4A1010",
-                fontSize: "35px",
+                fontSize: "40px",
                 zIndex: 1000,
                 textAlign: 'center',
                 marginRight: '60px',
-                marginBottom: '20px',
+                marginBottom: '10px',
                 ...animationStyle,
-                transitionDelay: '0.6s'
+                transitionDelay: '0.6s',
+                lineHeight: '2'
               }}
             >
               Quang Duy &
@@ -199,12 +200,13 @@ export default function SectionOne() {
               className={`${myFont.className} animate-on-scroll`}
               sx={{
                 color: "#4A1010",
-                fontSize: "35px",
+                fontSize: "40px",
                 zIndex: 1000,
                 textAlign: 'center',
                 marginLeft: '80px',
                 ...animationStyle,
-                transitionDelay: '0.8s'
+                transitionDelay: '0.8s',
+                lineHeight: '2'
               }}
             >
               Thanh Huyen
