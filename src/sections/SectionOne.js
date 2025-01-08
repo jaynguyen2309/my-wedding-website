@@ -179,12 +179,12 @@ export default function SectionOne() {
         </>
       ) : (
         <div>
-          <div style={{ margin: '40px 0 35px' }}>
+          <div style={{ margin: '30px 0 30px' }}>
             <Typography
               className={`${myFont.className} animate-on-scroll`}
               sx={{
                 color: "#4A1010",
-                fontSize: "40px",
+                fontSize: "35px",
                 zIndex: 1000,
                 textAlign: 'center',
                 marginRight: '60px',
@@ -200,7 +200,7 @@ export default function SectionOne() {
               className={`${myFont.className} animate-on-scroll`}
               sx={{
                 color: "#4A1010",
-                fontSize: "40px",
+                fontSize: "35px",
                 zIndex: 1000,
                 textAlign: 'center',
                 marginLeft: '80px',
