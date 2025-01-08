@@ -1,11 +1,12 @@
 import { Send } from "@mui/icons-material";
-import { Stack, Typography, TextField, Box, Grid, Button, useMediaQuery, useTheme, styled } from "@mui/material";
+import { Stack, Typography, TextField, Box, Grid, Button, useMediaQuery, useTheme, styled, CircularProgress } from "@mui/material";
 import { myFont } from "./SectionOne";
 import { useState } from "react";
 
 export default function SectionNine() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const [loading, setLoading] = useState(false);
 
   const [name, setName] = useState("");
   const [guests, setGuests] = useState("");
@@ -36,6 +37,7 @@ export default function SectionNine() {
 
     const Sheet_Url = "https://script.google.com/macros/s/AKfycbyt3UxAHjAdzXgD54QqugMAqN2UeAKBq-VdO-dZSoOFngRy1y6A9scz79PRnxYsqB54/exec";
     try {
+      setLoading(true);
       const response = await fetch(Sheet_Url, {
         method: 'POST',
         headers: {
@@ -47,8 +49,13 @@ export default function SectionNine() {
       const result = await response.json();
 
       alert('Your response has been recorded. Thank you!');
+      setName('');
+      setGuests('');
+      setDietaryRequirements('');
     } catch (error) {
       alert('An error occurred. Please contact the groom or the bride.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -112,9 +119,9 @@ export default function SectionNine() {
               </>
             )}
             <Box>
-              <Button onClick={handleSubmit} variant="contained" startIcon={<Send sx={{ mr: '5px' }} fontSize="large" />} sx={{ fontSize: '20px', borderRadius: '25px', textTransform: 'none', backgroundColor: '#590112', ':hover': { backgroundColor: '#590112' } }}>
+              <Button disabled={loading || !name} onClick={handleSubmit} variant="contained" startIcon={!loading && <Send sx={{ mr: '5px' }} fontSize="large" />} sx={{ fontSize: '20px', borderRadius: '25px', textTransform: 'none', backgroundColor: '#590112', ':hover': { backgroundColor: '#590112' }, ':disabled': { backgroundColor: '#d3d3d3' } }}>
                 <Typography variant="body1" fontFamily={'"Raleway", sans-serif'} fontSize={'20px'} fontWeight={600}>
-                  Send it
+                  {loading ? <CircularProgress /> : 'Send it'}
                 </Typography>
               </Button>
             </Box>

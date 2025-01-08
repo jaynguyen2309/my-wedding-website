@@ -61,7 +61,8 @@ const BackgroundSectionThreeStyle = styled("div")(() => ({
   alignItems: 'center',
   justifyContent: 'center',
   minHeight: "100vh",
-  backgroundColor: '#ffffff'
+  backgroundColor: '#ffffff',
+  overflow: 'hidden'
 }));
 
 const BackgroundSectionFiveStyle = styled("div")(() => ({

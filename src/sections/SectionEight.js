@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Stack, Typography, useTheme, useMediaQuery, Grid } from "@mui/material";
+import React, { useEffect, useState, useRef } from "react";
+import { Stack, Typography, useTheme, useMediaQuery, Grid, Box } from "@mui/material";
 import { myFont } from "./SectionOne";
 
 const SectionEight = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const sectionRef = useRef(null);
 
   const targetDate = new Date("2025-02-08T00:00:00");
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-  const [isVisible, setIsVisible] = useState(false);
 
   function calculateTimeLeft() {
     const now = new Date();
@@ -39,30 +39,55 @@ const SectionEight = () => {
   }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const section = document.getElementById("section-eight");
-    if (section) observer.observe(section);
-
-    return () => {
-      if (section) observer.unobserve(section);
-      observer.disconnect();
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.2
     };
+
+    const handleIntersect = (entries) => {
+      entries.forEach(entry => {
+        const elements = entry.target.querySelectorAll('.animate-bounce');
+        
+        if (entry.isIntersecting) {
+          elements.forEach((el, index) => {
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'scale(1)';
+            }, index * 200);
+          });
+        } else {
+          elements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'scale(0.5)';
+          });
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, options);
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   function formatNumber(number) {
     return String(number).padStart(2, "0");
   }
 
+  const bounceStyle = {
+    opacity: 0,
+    transform: 'scale(0.5)',
+    transition: 'opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
+    willChange: 'opacity, transform'
+  };
+
   return (
     <Stack
+      ref={sectionRef}
       direction="column"
       alignItems="center"
       maxWidth={isMobile ? '400px' : "1200px"}
@@ -76,7 +101,7 @@ const SectionEight = () => {
       <Typography
         id="countdown-title"
         variant={isMobile ? "h3" : "h2"}
-        fontWeight={600}
+        fontWeight={500}
         className={myFont.className}
         mb={isMobile ? 7 : 10}
         mt={isMobile && 3}
@@ -85,52 +110,48 @@ const SectionEight = () => {
       >
         Let's count down the time with us!
       </Typography>
-      {isMobile ?
+      {isMobile ? (
         <Grid container spacing={4}>
           {["Days", "Hours", "Minutes", "Seconds"].map((label, index) => {
-            const value = [
-              timeLeft.days,
-              timeLeft.hours,
-              timeLeft.minutes,
-              timeLeft.seconds,
-            ][index];
+            const value = [timeLeft.days, timeLeft.hours, timeLeft.minutes, timeLeft.seconds][index];
             return (
-              <Grid item xs={6}
-                key={label}
-              >
-                <Stack
-                  direction={'column'}
-                  alignItems={'center'}
-                  justifyContent={'center'}
-                  spacing={3}
-                  border="3px solid #590112"
-                  borderRadius={5}
-                  height={'200px'}
+              <Grid item xs={6} key={label}>
+                <Box
+                  className="animate-bounce"
+                  sx={bounceStyle}
                 >
-                  <Typography
-                    variant="h2"
-                    fontWeight={700}
-                    // fontFamily='"Raleway", sans-serif'
-                    color="#590112"
-                    fontSize={"50px"}
+                  <Stack
+                    direction={'column'}
+                    alignItems={'center'}
+                    justifyContent={'center'}
+                    spacing={3}
+                    border="3px solid #590112"
+                    borderRadius={5}
+                    height={'200px'}
                   >
-                    {formatNumber(value)}
-                  </Typography>
-                  <Typography
-                    variant="h4"
-                    fontWeight={700}
-                    // fontFamily={'"Raleway", sans-serif'}
-                    color="#590112"
-                    fontSize={"30px"}
-                  >
-                    {label}
-                  </Typography>
-                </Stack>
-
+                    <Typography
+                      variant="h2"
+                      fontWeight={700}
+                      color="#590112"
+                      fontSize={"50px"}
+                    >
+                      {formatNumber(value)}
+                    </Typography>
+                    <Typography
+                      variant="h4"
+                      fontWeight={700}
+                      color="#590112"
+                      fontSize={"30px"}
+                    >
+                      {label}
+                    </Typography>
+                  </Stack>
+                </Box>
               </Grid>
-            )
+            );
           })}
-        </Grid> :
+        </Grid>
+      ) : (
         <Stack
           direction={{ xs: "column", md: "row" }}
           spacing={5}
@@ -138,47 +159,45 @@ const SectionEight = () => {
           justifyContent="center"
         >
           {["Days", "Hours", "Minutes", "Seconds"].map((label, index) => {
-            const value = [
-              timeLeft.days,
-              timeLeft.hours,
-              timeLeft.minutes,
-              timeLeft.seconds,
-            ][index];
+            const value = [timeLeft.days, timeLeft.hours, timeLeft.minutes, timeLeft.seconds][index];
             return (
-              <Stack
+              <Box
                 key={label}
-                width="200px"
-                direction="column"
-                alignItems="center"
-                justifyContent="center"
-                border="3px solid #590112"
-                borderRadius={5}
-                padding={3}
-                spacing={9}
+                className="animate-bounce"
+                sx={bounceStyle}
               >
-                <Typography
-                  variant="h2"
-                  fontWeight={700}
-                  // fontFamily='"Raleway", sans-serif'
-                  color="#590112"
-                  fontSize={"95px"}
+                <Stack
+                  width="200px"
+                  direction="column"
+                  alignItems="center"
+                  justifyContent="center"
+                  border="3px solid #590112"
+                  borderRadius={5}
+                  padding={3}
+                  spacing={9}
                 >
-                  {formatNumber(value)}
-                </Typography>
-                <Typography
-                  variant="h4"
-                  fontWeight={700}
-                  // fontFamily={'"Raleway", sans-serif'}
-                  color="#590112"
-                  fontSize={"40px"}
-                >
-                  {label}
-                </Typography>
-              </Stack>
-            )
+                  <Typography
+                    variant="h2"
+                    fontWeight={700}
+                    color="#590112"
+                    fontSize={"95px"}
+                  >
+                    {formatNumber(value)}
+                  </Typography>
+                  <Typography
+                    variant="h4"
+                    fontWeight={700}
+                    color="#590112"
+                    fontSize={"40px"}
+                  >
+                    {label}
+                  </Typography>
+                </Stack>
+              </Box>
+            );
           })}
-        </Stack>}
-
+        </Stack>
+      )}
     </Stack>
   );
 };
