@@ -52,7 +52,7 @@ const SectionThree = () => {
   };
 
   return (
-    <Box ref={sectionRef} sx={{ width: '100%', minHeight: '100vh' }}>
+    <Box ref={sectionRef}>
       <Grid
         container
         spacing={{ xs: 0, md: 5 }}
