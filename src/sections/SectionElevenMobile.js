@@ -59,7 +59,7 @@ export default function SectionElevenMobile() {
       maxWidth={isMobile ? '400px' : '1200px'} 
       margin={'0 auto'} 
       spacing={3} 
-      p={isMobile && '20px 0px'}
+      p={isMobile && '10px 0px'}
     >
       <Typography 
         className="animate-on-scroll"
@@ -104,7 +104,7 @@ export default function SectionElevenMobile() {
                 marginBottom: '20px',
                 ...animationStyle,
                 transitionDelay: '0.4s',
-                lineHeight: '2.25'
+                lineHeight: '2.3'
               }}
             >
               Quang Duy &
@@ -119,7 +119,7 @@ export default function SectionElevenMobile() {
                 marginLeft: '80px',
                 ...animationStyle,
                 transitionDelay: '0.6s',
-                lineHeight: '2.25'
+                lineHeight: '2.3'
               }}
             >
               Thanh Huyen
