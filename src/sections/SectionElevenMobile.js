@@ -104,7 +104,7 @@ export default function SectionElevenMobile() {
                 marginBottom: '20px',
                 ...animationStyle,
                 transitionDelay: '0.4s',
-                lineHeight: '2.3'
+                lineHeight: '2.4'
               }}
             >
               Quang Duy &
@@ -119,7 +119,7 @@ export default function SectionElevenMobile() {
                 marginLeft: '80px',
                 ...animationStyle,
                 transitionDelay: '0.6s',
-                lineHeight: '2.3'
+                lineHeight: '2.4'
               }}
             >
               Thanh Huyen

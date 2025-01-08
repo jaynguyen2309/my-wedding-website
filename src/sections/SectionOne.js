@@ -191,7 +191,7 @@ export default function SectionOne() {
                 marginBottom: '10px',
                 ...animationStyle,
                 transitionDelay: '0.6s',
-                lineHeight: '2.3'
+                lineHeight: '2.4'
               }}
             >
               Quang Duy &
@@ -206,7 +206,7 @@ export default function SectionOne() {
                 marginLeft: '80px',
                 ...animationStyle,
                 transitionDelay: '0.8s',
-                lineHeight: '2.3'
+                lineHeight: '2.4'
               }}
             >
               Thanh Huyen
