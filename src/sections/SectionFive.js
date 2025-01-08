@@ -78,6 +78,7 @@ export default function SectionFive() {
         fontSize={isMobile ? '25px' : '60px'} 
         textAlign={'center'}
         sx={animationStyle}
+        lineHeight={'2.2'}
       >
         Our Special Day's Schedule
       </Typography>

@@ -53,9 +53,10 @@ export default function SectionTwelve() {
         variant="body1" 
         fontWeight={500} 
         color="#590112" 
-        fontSize={'65px'} 
+        fontSize={'60px'} 
         textAlign={'center'}
         sx={animationStyle}
+        lineHeight={'1.8'}
       >
         Hope to see you at our wedding!
       </Typography>

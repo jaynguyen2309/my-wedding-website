@@ -80,7 +80,7 @@ export default function SectionElevenMobile() {
           transitionDelay: '0.2s'
         }}
       >
-        <Stack direction={{ xs: 'column', md: 'row' }} alignItems={'center'} justifyContent='center' spacing={isMobile ? 3 : 10}>
+        <Stack direction={{ xs: 'column', md: 'row' }} alignItems={'center'} justifyContent='center' spacing={isMobile ? 1 : 10}>
           <img 
             src="https://cuoidichochi.my.canva.site/media/b7005d279f3dbe557f6e085b060265d0.jpg" 
             alt="phone" 
@@ -92,18 +92,19 @@ export default function SectionElevenMobile() {
               borderRadius: '50%' 
             }} 
           />
-          <Stack direction={'column'} justifyContent='center' spacing={3}>
+          <Stack direction={'column'} justifyContent='center' spacing={2}>
             <Typography
               className={`${myFont.className} animate-on-scroll`}
               sx={{
                 color: "#4A1010",
-                fontSize: "40px",
+                fontSize: "30px",
                 zIndex: 1000,
                 textAlign: 'center',
                 marginRight: '60px',
                 marginBottom: '20px',
                 ...animationStyle,
-                transitionDelay: '0.4s'
+                transitionDelay: '0.4s',
+                lineHeight: '2.25'
               }}
             >
               Quang Duy &
@@ -112,12 +113,13 @@ export default function SectionElevenMobile() {
               className={`${myFont.className} animate-on-scroll`}
               sx={{
                 color: "#4A1010",
-                fontSize: "40px",
+                fontSize: "30px",
                 zIndex: 1000,
                 textAlign: 'center',
                 marginLeft: '80px',
                 ...animationStyle,
-                transitionDelay: '0.6s'
+                transitionDelay: '0.6s',
+                lineHeight: '2.25'
               }}
             >
               Thanh Huyen
@@ -144,7 +146,8 @@ export default function SectionElevenMobile() {
                     backgroundColor: '#e0d7cf', 
                     color: '#590112' 
                   },
-                  width: '100%'
+                  width: '100%',
+                  textTransform: 'none'
                 }}
               >
                 Call the groom
@@ -172,7 +175,8 @@ export default function SectionElevenMobile() {
                     backgroundColor: '#e0d7cf', 
                     color: '#590112' 
                   },
-                  width: '100%'
+                  width: '100%',
+                  textTransform: 'none'
                 }}
               >
                 Call the bride

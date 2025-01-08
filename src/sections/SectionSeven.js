@@ -67,6 +67,7 @@ export default function SectionSeven() {
         mt={isMobile && 5} 
         textAlign={isMobile ? 'center' : 'left'}
         sx={animationStyle}
+        lineHeight={1.5}
       >
         Dresscode
       </Typography>
